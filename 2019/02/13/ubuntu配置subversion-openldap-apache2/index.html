@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="介绍OpenLDAP是轻型目录访问协议（Lightweight Directory Access Protocol，LDAP）的自由和开源的实现，在其OpenLDAP许可证下发行，并已经被包含在众多流行的Linux发行版中，我们讨论如何在ubuntu16.04上安装和配置openldap服务器，通过使用phpldapadmin来操作和查看wen页面的ldap,使用Ltb工具做web界面的密码修改。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-13T07:33:10.759Z">
+<meta property="og:updated_time" content="2019-02-13T08:03:22.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu配置openldap+phpldapadmin+LTB">
 <meta name="twitter:description" content="介绍OpenLDAP是轻型目录访问协议（Lightweight Directory Access Protocol，LDAP）的自由和开源的实现，在其OpenLDAP许可证下发行，并已经被包含在众多流行的Linux发行版中，我们讨论如何在ubuntu16.04上安装和配置openldap服务器，通过使用phpldapadmin来操作和查看wen页面的ldap,使用Ltb工具做web界面的密码修改。">
@@ -175,6 +175,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>OpenLDAP是轻型目录访问协议（Lightweight Directory Access Protocol，LDAP）的自由和开源的实现，在其OpenLDAP许可证下发行，并已经被包含在众多流行的Linux发行版中，我们讨论如何在ubuntu16.04上安装和配置openldap服务器，通过使用phpldapadmin来操作和查看wen页面的ldap,使用Ltb工具做web界面的密码修改。</p>
+<a id="more"></a>
 <h5 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h5><p>操作系统：ubuntu16.04<br>ldap<br>phpldapadmin<br>Ltb工具</p>
 <h5 id="安装ldap"><a href="#安装ldap" class="headerlink" title="安装ldap"></a>安装ldap</h5><p>更新软件包到最新，通过apt-get安装openldap<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install slapd ldap-utils</span><br></pre></td></tr></table></figure></p>
 <p>在整个安装过程中需要需要输入两次管理员密码，安装完成后，使用配置命令做一些配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg-reconfigure slapd</span><br></pre></td></tr></table></figure></p>
