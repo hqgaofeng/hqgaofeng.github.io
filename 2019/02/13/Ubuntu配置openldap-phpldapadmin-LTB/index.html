@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>Ubuntu配置openldap+phpldapadmin+LTB | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="介绍OpenLDAP是轻型目录访问协议（Lightweight Directory Access Protocol，LDAP）的自由和开源的实现，在其OpenLDAP许可证下发行，并已经被包含在众多流行的Linux发行版中，我们讨论如何在ubuntu16.04上安装和配置openldap服务器，通过使用phpldapadmin来操作和查看wen页面的ldap,使用Ltb工具做web界面的密码修改。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu配置openldap+phpldapadmin+LTB">
+<meta property="og:url" content="http://yoursite.com/2019/02/13/Ubuntu配置openldap-phpldapadmin-LTB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="介绍OpenLDAP是轻型目录访问协议（Lightweight Directory Access Protocol，LDAP）的自由和开源的实现，在其OpenLDAP许可证下发行，并已经被包含在众多流行的Linux发行版中，我们讨论如何在ubuntu16.04上安装和配置openldap服务器，通过使用phpldapadmin来操作和查看wen页面的ldap,使用Ltb工具做web界面的密码修改。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-13T08:30:16.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Ubuntu配置openldap+phpldapadmin+LTB">
+<meta name="twitter:description" content="介绍OpenLDAP是轻型目录访问协议（Lightweight Directory Access Protocol，LDAP）的自由和开源的实现，在其OpenLDAP许可证下发行，并已经被包含在众多流行的Linux发行版中，我们讨论如何在ubuntu16.04上安装和配置openldap服务器，通过使用phpldapadmin来操作和查看wen页面的ldap,使用Ltb工具做web界面的密码修改。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,103 +154,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Ubuntu配置openldap-phpldapadmin-LTB" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Ubuntu配置openldap+phpldapadmin+LTB
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/13/Ubuntu配置openldap-phpldapadmin-LTB/" class="archive-article-date">
+
+        
+        <a href="/2019/02/13/Ubuntu配置openldap-phpldapadmin-LTB/" class="archive-article-date">
   	<time datetime="2019-02-13T08:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/13/Ubuntu配置openldap-phpldapadmin-LTB/">Ubuntu配置openldap+phpldapadmin+LTB</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>OpenLDAP是轻型目录访问协议（Lightweight Directory Access Protocol，LDAP）的自由和开源的实现，在其OpenLDAP许可证下发行，并已经被包含在众多流行的Linux发行版中，我们讨论如何在ubuntu16.04上安装和配置openldap服务器，通过使用phpldapadmin来操作和查看wen页面的ldap,使用Ltb工具做web界面的密码修改。<br><a id="more"></a></p>
+<h5 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h5><p>操作系统：ubuntu16.04<br>ldap<br>phpldapadmin<br>Ltb工具</p>
+<h5 id="安装ldap"><a href="#安装ldap" class="headerlink" title="安装ldap"></a>安装ldap</h5><p>更新软件包到最新，通过apt-get安装openldap<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install slapd ldap-utils</span><br></pre></td></tr></table></figure></p>
+<p>在整个安装过程中需要需要输入两次管理员密码，安装完成后，使用配置命令做一些配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg-reconfigure slapd</span><br></pre></td></tr></table></figure></p>
+<p>在整个配置过程中我们需要回答一些问题，但是大部分是选择默认<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Omit OpenLDAP server configuration? No</span><br><span class="line">DNS domain name? intoyv.com</span><br><span class="line">Organization name? intoyv</span><br><span class="line">Administrator password? 连续输入两次密码</span><br><span class="line">Database backend? MDB</span><br><span class="line">Remove the database when slapd is purged? No</span><br><span class="line">Move old database? Yes</span><br><span class="line">Allow LDAPv2 protocol? No</span><br></pre></td></tr></table></figure></p>
+<p>打开防火墙上的LDAP端口，以便外部客户端可以连接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow ldap</span><br></pre></td></tr></table></figure></p>
+<p>测试我们的LDAP连接ldapwhoami<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldapwhoami -H ldap:// -x</span><br></pre></td></tr></table></figure></p>
+<p>如果返回anonymous，表示配置正确</p>
+<h5 id="安装phpLDAPadmin-Web界面"><a href="#安装phpLDAPadmin-Web界面" class="headerlink" title="安装phpLDAPadmin Web界面"></a>安装phpLDAPadmin Web界面</h5><p>虽然可以通过命令行管理LDAP，但使用Web界面更容易。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install phpldapadmin</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后需要修改一些配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/phpldapadmin/config.php</span><br></pre></td></tr></table></figure></p>
+<p>主要改如下四个地方<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$servers</span>-&gt;setValue(<span class="string">'server'</span>,<span class="string">'host'</span>,<span class="string">'192.168.0.2'</span>);</span><br><span class="line"><span class="variable">$servers</span>-&gt;setValue(<span class="string">'server'</span>,<span class="string">'base'</span>,array(<span class="string">'dc=intoyv,dc=com'</span>));</span><br><span class="line"><span class="variable">$servers</span>-&gt;setValue(<span class="string">'login'</span>,<span class="string">'bind_id'</span>,<span class="string">'cn=admin,dc=intoyv,dc=com'</span>);</span><br><span class="line"><span class="variable">$config</span>-&gt;custom-&gt;appearance[<span class="string">'hide_template_warning'</span>] = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure></p>
+<p>配置更改后，我们现在可以开始使用它了。在Web浏览器中导航到该应用程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.0.2/phpldapadmin</span><br></pre></td></tr></table></figure></p>
+<h5 id="LTB安装"><a href="#LTB安装" class="headerlink" title="LTB安装"></a>LTB安装</h5><p>此工具的作用是能让同事在web界面自己修改自己的密码。管理员可以查看整体用户信息<br>配置ubuntu的源文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/apt/sources.list.d/ltb-project.list</span><br><span class="line">deb [arch=amd64] https://ltb-project.org/debian/jessie jessie main</span><br></pre></td></tr></table></figure></p>
+<p>导入key<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O - https://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project | sudo apt-key add -</span><br></pre></td></tr></table></figure></p>
+<p>更新源，安装软件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install self-service-password</span><br><span class="line">sudo apt-get install white-pages</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后需要配置apache2，使用创建软连接的形式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/share/self-service-password/ password</span><br><span class="line">sudo ln -s /usr/share/white-pages/htdocs/ list</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后的访问地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/password</span><br><span class="line">http://localhost/list</span><br></pre></td></tr></table></figure></p>
+<p>安装mbstring<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php7.0-mbstring</span><br></pre></td></tr></table></figure></p>
+<p>修改php配置文件，最后一行加入如下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/php/7.0/apache2/php.ini</span><br><span class="line">extension=php7.0-mbstring.so</span><br></pre></td></tr></table></figure></p>
+<p>修改配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /usr/share/self-service-password/conf/config.inc.php</span><br></pre></td></tr></table></figure></p>
+<p>主要修改如下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开启debug模式</span></span><br><span class="line"><span class="variable">$debug</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">#LDAP配置信息</span></span><br><span class="line"><span class="variable">$ldap_url</span> = <span class="string">"ldap://192.168.0.2:389"</span>;</span><br><span class="line"><span class="variable">$ldap_binddn</span> = <span class="string">"cn=admin,dc=intoyv,dc=com"</span>;</span><br><span class="line"><span class="variable">$ldap_bindpw</span> = <span class="string">"password"</span>;</span><br><span class="line"><span class="variable">$ldap_base</span> = <span class="string">"dc=intoyv,dc=com"</span>;</span><br><span class="line"><span class="comment">#配置用户修改权限，使用user则需要在ldap中开启用户修改权限，使用manager,则给予用户在此服务使用的权限 。</span></span><br><span class="line"><span class="variable">$who_change_password</span> = <span class="string">"manager"</span>;</span><br><span class="line"><span class="comment">#如下值不需要记住，但是一定要复杂</span></span><br><span class="line"><span class="variable">$keyphrase</span> = <span class="string">"secretadfafrofjasdjgkalsdhgkahgakdh"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>修改完成后重启apache服务器,打开如下地址即可以操作。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/password</span><br></pre></td></tr></table></figure></p>
+<p>还配置了使用发送邮件的形式重置密码，需要安装sendmail，安装方式见附录地址说明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install composer</span><br></pre></td></tr></table></figure></p>
+<p>需要修改的配置项目<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$mail_address_use_ldap</span> = <span class="literal">true</span>;   <span class="comment">#只填写用户名，邮箱地址自动从ldap中获取</span></span><br><span class="line"><span class="variable">$mail_from</span> = <span class="string">"admin@intoyv.cn"</span>;  <span class="comment">#发送者邮箱地址</span></span><br><span class="line"><span class="variable">$mail_from_name</span> = <span class="string">"gaofeng"</span>;   <span class="comment">#发送者</span></span><br><span class="line"><span class="variable">$notify_on_change</span> = <span class="literal">true</span>;    <span class="comment">#密码修改成功，再次发送邮件通知</span></span><br><span class="line"><span class="variable">$mail_smtp_host</span> = <span class="string">'smtp.qiye.163.com'</span>;    <span class="comment">#smtp地址</span></span><br><span class="line"><span class="variable">$mail_smtp_auth</span> = <span class="string">'login'</span>;    <span class="comment">#认证方式，在这个地方卡了好久</span></span><br><span class="line"><span class="variable">$mail_smtp_user</span> = <span class="string">'admin@intoyv.cn'</span>;    <span class="comment">#认证用户</span></span><br><span class="line"><span class="variable">$mail_smtp_pass</span> = <span class="string">'password'</span>;   <span class="comment">#认证密码</span></span><br></pre></td></tr></table></figure></p>
+<p>查看用户信息的配置方式比较简单，直接参考官方文档，附录的第二个地址。</p>
+<p>参考链接<br><a href="https://www.longger.net/article/b6eccf27.html" target="_blank" rel="noopener">https://www.longger.net/article/b6eccf27.html</a><br><a href="https://ltb-project.org/documentation/self-service-password/" target="_blank" rel="noopener">https://ltb-project.org/documentation/self-service-password/</a><br><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-openldap-and-phpldapadmin-on-ubuntu-16-04" target="_blank" rel="noopener">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-openldap-and-phpldapadmin-on-ubuntu-16-04</a><br><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-a-basic-ldap-server-on-an-ubuntu-12-04-vps#add-organizational-units-groups-and-users" target="_blank" rel="noopener">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-a-basic-ldap-server-on-an-ubuntu-12-04-vps#add-organizational-units-groups-and-users</a><br><a href="https://packagist.org/packages/phpmailer/phpmailer" target="_blank" rel="noopener">https://packagist.org/packages/phpmailer/phpmailer</a><br><a href="https://blog.csdn.net/u012662731/article/details/80684514" target="_blank" rel="noopener">https://blog.csdn.net/u012662731/article/details/80684514</a></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/13/Ubuntu配置openldap-phpldapadmin-LTB/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/13/Gerrit安装配置Ubuntu配置Git-Gerrit-PostgreSQL-LDAP/" class="archive-article-date">
-  	<time datetime="2019-02-13T08:22:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/02/13/Gerrit安装配置Ubuntu配置Git-Gerrit-PostgreSQL-LDAP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Gerrit安装配置Ubuntu配置Git+Gerrit+PostgreSQL+LDAP</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/13/Gerrit安装配置Ubuntu配置Git-Gerrit-PostgreSQL-LDAP/">Gerrit安装配置Ubuntu配置Git+Gerrit+PostgreSQL+LDAP</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/13/Gerrit安装配置Ubuntu配置Git-Gerrit-PostgreSQL-LDAP-1/" class="archive-article-date">
-  	<time datetime="2019-02-13T08:21:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/13/Gerrit安装配置Ubuntu配置Git-Gerrit-PostgreSQL-LDAP-1/">ubuntu配置subversion+openldap+apache2</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -269,8 +351,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
