@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>ubuntu配置subversion+openldap+apache2 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="环境准备系统：ubuntu16.04认证：openldap配置步骤更新ubuntu源1sudo apt-get update 安装apache21sudo apt-get install apache2 安装subversion和对应apache2模块1sudo apt-get install subversion libapache2-mod-svn libapache2-svn libsvn-">
+  <meta name="description" content="环境准备系统：ubuntu16.04认证：openldap配置步骤更新ubuntu源1sudo apt-get update">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu配置subversion+openldap+apache2">
-<meta property="og:url" content="http://yoursite.com/2019/02/13/ubuntu配置subversion-openldap-apache2-1/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/02/13/Gerrit安装配置Ubuntu配置Git-Gerrit-PostgreSQL-LDAP-1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="环境准备系统：ubuntu16.04认证：openldap配置步骤更新ubuntu源1sudo apt-get update 安装apache21sudo apt-get install apache2 安装subversion和对应apache2模块1sudo apt-get install subversion libapache2-mod-svn libapache2-svn libsvn-">
+<meta property="og:description" content="环境准备系统：ubuntu16.04认证：openldap配置步骤更新ubuntu源1sudo apt-get update">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-13T08:04:36.759Z">
+<meta property="og:updated_time" content="2019-02-13T08:26:56.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu配置subversion+openldap+apache2">
-<meta name="twitter:description" content="环境准备系统：ubuntu16.04认证：openldap配置步骤更新ubuntu源1sudo apt-get update 安装apache21sudo apt-get install apache2 安装subversion和对应apache2模块1sudo apt-get install subversion libapache2-mod-svn libapache2-svn libsvn-">
+<meta name="twitter:description" content="环境准备系统：ubuntu16.04认证：openldap配置步骤更新ubuntu源1sudo apt-get update">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,7 +154,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ubuntu配置subversion-openldap-apache2-1" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Gerrit安装配置Ubuntu配置Git-Gerrit-PostgreSQL-LDAP-1" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -166,8 +166,8 @@
   
 
         
-        <a href="/2019/02/13/ubuntu配置subversion-openldap-apache2-1/" class="archive-article-date">
-  	<time datetime="2019-02-13T07:31:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
+        <a href="/2019/02/13/Gerrit安装配置Ubuntu配置Git-Gerrit-PostgreSQL-LDAP-1/" class="archive-article-date">
+  	<time datetime="2019-02-13T08:21:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
 </a>
         
       </header>
@@ -175,9 +175,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>环境准备<br>系统：ubuntu16.04<br>认证：openldap<br>配置步骤<br>更新ubuntu源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>安装apache2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></table></figure></p>
 <p>安装subversion和对应apache2模块<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install subversion libapache2-mod-svn libapache2-svn libsvn-dev</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <p>启用apache中dav_svn模块<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod dav</span><br><span class="line">sudo a2enmod dav_svn</span><br></pre></td></tr></table></figure></p>
 <p>重启apache2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure></p>
 <p>配置dav_svn.conf,首先需要备份此文件。配置项如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apache2/mods-available/dav_svn.conf</span><br></pre></td></tr></table></figure></p>
@@ -267,7 +267,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/13/ubuntu配置subversion-openldap-apache2-1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/13/Gerrit安装配置Ubuntu配置Git-Gerrit-PostgreSQL-LDAP-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,11 +281,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/02/13/ubuntu配置subversion-openldap-apache2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/02/13/Gerrit安装配置Ubuntu配置Git-Gerrit-PostgreSQL-LDAP/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Ubuntu配置openldap+phpldapadmin+LTB
+          Gerrit安装配置Ubuntu配置Git+Gerrit+PostgreSQL+LDAP
         
       </div>
     </a>
