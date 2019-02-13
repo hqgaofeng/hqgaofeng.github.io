@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/2 | Hexo</title>
+  <title>ubuntu配置subversion+openldap+apache2 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/02/index.html">
+  <meta name="description" content="环境准备系统：ubuntu16.04认证：openldap配置步骤更新ubuntu源1sudo apt-get update 安装apache21sudo apt-get install apache2 安装subversion和对应apache2模块1sudo apt-get install subversion libapache2-mod-svn libapache2-svn libsvn-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu配置subversion+openldap+apache2">
+<meta property="og:url" content="http://yoursite.com/2019/02/13/ubuntu配置subversion-openldap-apache2-1/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="环境准备系统：ubuntu16.04认证：openldap配置步骤更新ubuntu源1sudo apt-get update 安装apache21sudo apt-get install apache2 安装subversion和对应apache2模块1sudo apt-get install subversion libapache2-mod-svn libapache2-svn libsvn-">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-13T07:31:44.584Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="ubuntu配置subversion+openldap+apache2">
+<meta name="twitter:description" content="环境准备系统：ubuntu16.04认证：openldap配置步骤更新ubuntu源1sudo apt-get update 安装apache21sudo apt-get install apache2 安装subversion和对应apache2模块1sudo apt-get install subversion libapache2-mod-svn libapache2-svn libsvn-">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,103 +154,177 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ubuntu配置subversion-openldap-apache2-1" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/13/ubuntu配置subversion-openldap-apache2/" class="archive-article-date">
-  	<time datetime="2019-02-13T07:33:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/13/ubuntu配置subversion-openldap-apache2/">Ubuntu配置openldap+phpldapadmin+LTB</a>
+    <h1 class="article-title" itemprop="name">
+      ubuntu配置subversion+openldap+apache2
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/13/ubuntu配置subversion-openldap-apache2-1/" class="archive-article-date">
+        
+        <a href="/2019/02/13/ubuntu配置subversion-openldap-apache2-1/" class="archive-article-date">
   	<time datetime="2019-02-13T07:31:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/13/ubuntu配置subversion-openldap-apache2-1/">ubuntu配置subversion+openldap+apache2</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>环境准备<br>系统：ubuntu16.04<br>认证：openldap<br>配置步骤<br>更新ubuntu源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<p>安装apache2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></table></figure></p>
+<p>安装subversion和对应apache2模块<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install subversion libapache2-mod-svn libapache2-svn libsvn-dev</span><br></pre></td></tr></table></figure></p>
+<p>启用apache中dav_svn模块<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod dav</span><br><span class="line">sudo a2enmod dav_svn</span><br></pre></td></tr></table></figure></p>
+<p>重启apache2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure></p>
+<p>配置dav_svn.conf,首先需要备份此文件。配置项如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apache2/mods-available/dav_svn.conf</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;location /svn&gt;</span><br><span class="line"></span><br><span class="line">   DAV svn</span><br><span class="line">   SVNParentPath /home/svn</span><br><span class="line"></span><br><span class="line">   AuthType Basic</span><br><span class="line">   AuthName <span class="string">"SVN Authorization Realm"</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">#权限控制文件</span></span><br><span class="line">   AuthzSVNAccessFile /etc/apache2/dav_svn.authz</span><br><span class="line">   <span class="comment">#以下为LDAP服务配置</span></span><br><span class="line">   AuthBasicProvider ldap</span><br><span class="line">   <span class="comment">#LDAP连接</span></span><br><span class="line">   AuthLDAPURL <span class="string">"ldap://192.168.0.2:389/dc=intoyv,dc=com?uid?sub?(objectClass=*)"</span></span><br><span class="line">   <span class="comment">#绑定用户，主要用于对LDAP进行读取与匹配，如果允许匿名读取LDAP数据则可不写</span></span><br><span class="line">   AuthLDAPBindDN <span class="string">"cn=admin,dc=intoyv,dc=com"</span></span><br><span class="line">   <span class="comment">#绑定密码      </span></span><br><span class="line">   AuthLDAPBindPassword <span class="string">"password"</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">#读取权限要求必须是有效用户，非匿名</span></span><br><span class="line">   <span class="comment">#&lt;Limit GET PROPFIND OPTIONS REPORT&gt;</span></span><br><span class="line">        require valid-user</span><br><span class="line">   <span class="comment">#&lt;/Limit&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;/location&gt;</span><br></pre></td></tr></table></figure>
+<p>启用ldap模块<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod authnz_ldap</span><br><span class="line">sudo service apache2 restart</span><br><span class="line">sudo a2enmod ldap</span><br><span class="line">sudo a2enmod headers</span><br><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure></p>
+<p>创建svn版本库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin create /home/svn/intoyv</span><br><span class="line">sudo chown -R www-data.www-data /home/svn</span><br></pre></td></tr></table></figure></p>
+<p>创建权限控制文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apache2/dav_svn.authz</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[groups]</span><br><span class="line">admin = admin</span><br><span class="line">group1 = admin,feng.gao</span><br><span class="line"><span class="comment">###################################</span></span><br><span class="line">[/]</span><br><span class="line">* = r</span><br><span class="line">@admin = rw</span><br></pre></td></tr></table></figure>
+<p>再次重启apache2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure></p>
+<p>参考地址：<br><a href="https://nithinkk.wordpress.com/2017/02/01/subversion-in-nutshell/" target="_blank" rel="noopener">https://nithinkk.wordpress.com/2017/02/01/subversion-in-nutshell/</a><br><a href="https://nithinkk.wordpress.com/2017/06/28/ldap-authentication-in-subversion-for-ubuntu-16-04/" target="_blank" rel="noopener">https://nithinkk.wordpress.com/2017/06/28/ldap-authentication-in-subversion-for-ubuntu-16-04/</a><br><a href="https://blog.csdn.net/lansine2005/article/details/20362591" target="_blank" rel="noopener">https://blog.csdn.net/lansine2005/article/details/20362591</a><br><a href="https://blog.csdn.net/wanglei_storage/article/details/52663328" target="_blank" rel="noopener">https://blog.csdn.net/wanglei_storage/article/details/52663328</a></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/13/ubuntu配置subversion-openldap-apache2-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/13/hello-world/" class="archive-article-date">
-  	<time datetime="2019-02-13T07:29:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/02/13/ubuntu配置subversion-openldap-apache2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Ubuntu配置openldap+phpldapadmin+LTB
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Gerrit安装配置Ubuntu配置Git+Gerrit+PostgreSQL+LDAP</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/13/hello-world/">Gerrit安装配置Ubuntu配置Git+Gerrit+PostgreSQL+LDAP</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -269,8 +347,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

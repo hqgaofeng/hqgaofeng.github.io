@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hexo</title>
+  <title>Gerrit安装配置Ubuntu配置Git+Gerrit+PostgreSQL+LDAP | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="代码审核（Code Review）代码审核是软件研发质量保障机制中非常重要的一环，但在实际项目执行过程中，却因为种种原因被Delay甚至是忽略。在实践中，我们选用一款免费、开放源代码的代码审查软件Gerrit。 为什么一定要做入库前Code Review 首先，代码审查的最大的功用是纯社会性的。如果你在编程，而且知道将会有同事检查你的代码，你编程态度就完全不一样了。你写出的代码将更加整洁，有更好的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/02/12/hello-world/index.html">
+<meta property="og:title" content="Gerrit安装配置Ubuntu配置Git+Gerrit+PostgreSQL+LDAP">
+<meta property="og:url" content="http://yoursite.com/2019/02/13/hello-world/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="代码审核（Code Review）代码审核是软件研发质量保障机制中非常重要的一环，但在实际项目执行过程中，却因为种种原因被Delay甚至是忽略。在实践中，我们选用一款免费、开放源代码的代码审查软件Gerrit。 为什么一定要做入库前Code Review 首先，代码审查的最大的功用是纯社会性的。如果你在编程，而且知道将会有同事检查你的代码，你编程态度就完全不一样了。你写出的代码将更加整洁，有更好的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-10-28T00:39:58.000Z">
+<meta property="og:image" content="http://118.24.117.216:8181/uploads/mindoc/images/m_f48c3106ef14f3e78d7c6d73d6dc81d9_r.png">
+<meta property="og:image" content="http://118.24.117.216:8181/uploads/mindoc/images/m_9a241abb5552aaeccb434828906297c8_r.png">
+<meta property="og:updated_time" content="2019-02-13T07:30:11.286Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Gerrit安装配置Ubuntu配置Git+Gerrit+PostgreSQL+LDAP">
+<meta name="twitter:description" content="代码审核（Code Review）代码审核是软件研发质量保障机制中非常重要的一环，但在实际项目执行过程中，却因为种种原因被Delay甚至是忽略。在实践中，我们选用一款免费、开放源代码的代码审查软件Gerrit。 为什么一定要做入库前Code Review 首先，代码审查的最大的功用是纯社会性的。如果你在编程，而且知道将会有同事检查你的代码，你编程态度就完全不一样了。你写出的代码将更加整洁，有更好的">
+<meta name="twitter:image" content="http://118.24.117.216:8181/uploads/mindoc/images/m_f48c3106ef14f3e78d7c6d73d6dc81d9_r.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -161,28 +164,39 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Gerrit安装配置Ubuntu配置Git+Gerrit+PostgreSQL+LDAP
     </h1>
   
 
         
-        <a href="/2019/02/12/hello-world/" class="archive-article-date">
-  	<time datetime="2019-02-12T08:31:16.680Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-12</time>
+        <a href="/2019/02/13/hello-world/" class="archive-article-date">
+  	<time datetime="2019-02-13T07:29:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h4 id="代码审核（Code-Review）"><a href="#代码审核（Code-Review）" class="headerlink" title="代码审核（Code Review）"></a>代码审核（Code Review）</h4><p>代码审核是软件研发质量保障机制中非常重要的一环，但在实际项目执行过程中，却因为种种原因被Delay甚至是忽略。在实践中，我们选用一款免费、开放源代码的代码审查软件Gerrit。</p>
+<h4 id="为什么一定要做入库前Code-Review"><a href="#为什么一定要做入库前Code-Review" class="headerlink" title="为什么一定要做入库前Code Review"></a>为什么一定要做入库前Code Review</h4><ol>
+<li>首先，代码审查的最大的功用是纯社会性的。如果你在编程，而且知道将会有同事检查你的代码，你编程态度就完全不一样了。你写出的代码将更加整洁，有更好的注释和程序结构。</li>
+<li>其次，偷懒是人的天性，从节约成本的角度考虑，大家一般会选择在测试之前无限制的Delay Code Review。入库前做Code Review便是成本和效果之间最佳平衡点，它能及时发现问题，进行修改后确保代码质量。</li>
+<li>最后，代码审查能传播知识。在很多开发团队里，经常每个人负责一个核心模块，每个人都只关注自己的模块。除非是同事的模块影响了自己的程序，他们从不相互交流。这种情况的后果是，每个模块只有一个人熟悉里面的代码。如果这个人休假或辞职了，其他人则束手无策。通过代码审查，至少会有两个人熟悉这些程序——作者，以及审查者。审查者并不能像程序的作者一样对程序十分了解，但至少他会熟悉程序的设计和架构，这是极其重要的。</li>
+</ol>
+<h4 id="Gerrit简介"><a href="#Gerrit简介" class="headerlink" title="Gerrit简介"></a>Gerrit简介</h4><p>Gerrit是搭建在Git之上的基于Web的代码审查工具。大家都知道Git是一个分布式的代码版本管理工具，常用于多人协作开发的工作环境中，程序员将自己修改的代码提交到本地版本库，然后再push到远程的中央版本库中，这个过程中，代码的提交是没有经过审核的，对于分布在多个地点的团队来说，不能互相审查、评论其他人的代码，非常不利于代码质量的控制。而Gerrit就是用来进行代码审查的工具，程序员push到中央版本库的代码，首先要经过团队中Reviewers的审查，被接受后才会真正提交到版本库中。</p>
+<h5 id="Gerrit之前的系统架构"><a href="#Gerrit之前的系统架构" class="headerlink" title="Gerrit之前的系统架构"></a>Gerrit之前的系统架构</h5><p><img src="http://118.24.117.216:8181/uploads/mindoc/images/m_f48c3106ef14f3e78d7c6d73d6dc81d9_r.png" alt=""></p>
+<h5 id="Gerrit之后的系统架构"><a href="#Gerrit之后的系统架构" class="headerlink" title="Gerrit之后的系统架构"></a>Gerrit之后的系统架构</h5><p><img src="http://118.24.117.216:8181/uploads/mindoc/images/m_9a241abb5552aaeccb434828906297c8_r.png" alt=""></p>
+<h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><p>操作系统:Ubuntu16.04 LTS<br>Git：代码版本管理<br>Java：最低1.7版本以上<br>Gerrit：选用2.16<br>数据库：Gerrit支持H2（内置）/MySQL/PostgreSQL，我们选择PostgreSQL<br>身份认证：审核的前提是做身份认证来登陆Web，Gerrit支持OpenID/HTTP/LDAP，我选择已经搭建好的LDAP</p>
+<h4 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h4><p>git安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure></p>
+<p>Jdk安装：<br>Ubuntu14.10及以上版本的Ubuntu官方软件中心里有OpenJDK java 8，可以直接用apt-get安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:openjdk-r/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure></p>
+<p>PostgreSQL安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install postgresql</span><br></pre></td></tr></table></figure></p>
+<p>初次安装后，会默认生成名为postgres的Linux系统用户、数据库和数据库用户（作为数据库管理员），首先修改postgres数据库用户的密码，然后增加Gerrit需要的数据库<br>设置密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres psql</span><br><span class="line">\password postgres</span><br><span class="line">\q</span><br></pre></td></tr></table></figure></p>
+<p>增加gerrit2用户，设置密码，创建数据库reviewdb并把权限给gerrit2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres createuser -RDIElPS gerrit2</span><br><span class="line">sudo -u postgres psql</span><br><span class="line">\password gerrit2</span><br><span class="line">sudo -u postgres createdb -E UTF-8 -O gerrit2 reviewdb</span><br></pre></td></tr></table></figure></p>
+<p>Gerrit安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar gerrit-2.16.war init -d review</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后我的配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[gerrit]</span><br><span class="line">	basePath = git</span><br><span class="line">	serverId = a7408397-ce91-4415-b374-a99762947679</span><br><span class="line">	canonicalWebUrl = http://118.24.117.216:8081/</span><br><span class="line">[database]</span><br><span class="line">	<span class="built_in">type</span> = postgresql</span><br><span class="line">	hostname = localhost</span><br><span class="line">	database = reviewdb</span><br><span class="line">	username = gerrit2</span><br><span class="line">[noteDb <span class="string">"changes"</span>]</span><br><span class="line">	disableReviewDb = <span class="literal">true</span></span><br><span class="line">	primaryStorage = note db</span><br><span class="line">	<span class="built_in">read</span> = <span class="literal">true</span></span><br><span class="line">	sequence = <span class="literal">true</span></span><br><span class="line">	write = <span class="literal">true</span></span><br><span class="line">[container]</span><br><span class="line">	javaOptions = <span class="string">"-Dflogger.backend_factory=com.google.common.flogger.backend.log4j.Log4jBackendFactory#getInstance"</span></span><br><span class="line">	javaOptions = <span class="string">"-Dflogger.logging_context=com.google.gerrit.server.logging.LoggingContext#getInstance"</span></span><br><span class="line">	user = ubuntu</span><br><span class="line">	javaHome = /usr/lib/jvm/java-8-openjdk-amd64/jre</span><br><span class="line">[index]</span><br><span class="line">	<span class="built_in">type</span> = LUCENE</span><br><span class="line">[auth]</span><br><span class="line">	<span class="built_in">type</span> = LDAP</span><br><span class="line">	gitBasicAuthPolicy = LDAP</span><br><span class="line">[ldap]</span><br><span class="line">	server = ldap://118.24.117.216</span><br><span class="line">	username = cn=admin,dc=intoyv,dc=com</span><br><span class="line">	accountBase = dc=intoyv,dc=com</span><br><span class="line">	groupBase = dc=intoyv,dc=com</span><br><span class="line">[receive]</span><br><span class="line">	enableSignedPush = <span class="literal">false</span></span><br><span class="line">[sendemail]</span><br><span class="line">	smtpServer = smtp.qiye.163.com</span><br><span class="line">	smtpUser = gerrit@intoyv.cn</span><br><span class="line">	from = gerrit@intoyv.cn</span><br><span class="line">	smtpPass = pwssword</span><br><span class="line">[sshd]</span><br><span class="line">	listenAddress = *:29418</span><br><span class="line">[httpd]</span><br><span class="line">	listenUrl = http://*:8081/</span><br><span class="line">[cache]</span><br><span class="line">	directory = cache</span><br></pre></td></tr></table></figure></p>
+<h4 id="权限配置"><a href="#权限配置" class="headerlink" title="权限配置"></a>权限配置</h4><p>安装完成后登陆gerrit地址，下载All-Projects<br>修改project.config文件<br>首次修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[access <span class="string">"refs/*"</span>]</span><br><span class="line">        <span class="built_in">read</span> = group Administrators</span><br><span class="line">        <span class="built_in">read</span> = group Anonymous Users</span><br><span class="line">        label-Code-Review = -2..+2 group Administrators</span><br><span class="line">        label-Verified = -1..+1 group Administrators</span><br><span class="line">        push = group Administrators</span><br><span class="line">        submit = group Administrators</span><br></pre></td></tr></table></figure></p>
+<p>修改完成后提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -a -m <span class="string">'Updated permissions'</span>  </span><br><span class="line">git push origin HEAD:refs/meta/config</span><br></pre></td></tr></table></figure></p>
+<p>参考链接：<br><a href="https://gerrit-ci.gerritforge.com/" target="_blank" rel="noopener">https://gerrit-ci.gerritforge.com/</a><br><a href="http://blog.csdn.net/allhaillouis/article/details/46374959" target="_blank" rel="noopener">http://blog.csdn.net/allhaillouis/article/details/46374959</a><br><a href="https://www.cnblogs.com/kevingrace/p/5651447.html" target="_blank" rel="noopener">https://www.cnblogs.com/kevingrace/p/5651447.html</a><br><a href="https://blog.csdn.net/cuiaamay/article/details/48286291" target="_blank" rel="noopener">https://blog.csdn.net/cuiaamay/article/details/48286291</a><br><a href="https://segmentfault.com/a/1190000005869597" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005869597</a></p>
 
       
 
@@ -262,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/12/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/13/hello-world/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,6 +288,20 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/02/13/ubuntu配置subversion-openldap-apache2-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ubuntu配置subversion+openldap+apache2
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
